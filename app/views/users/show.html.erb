@@ -6,3 +6,11 @@
     <li><%= secret.title %></li>
   <% end %>
 </ul>
+
+<h2>Friends</h2>
+<ul>
+  <% @user.friends.each do |friend| %>
+    <li><%= friend.username %></li>
+  <% end %>
+</ul>
+

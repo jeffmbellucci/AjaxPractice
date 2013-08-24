@@ -13,6 +13,12 @@ class User < ActiveRecord::Base
     :class_name => "Secret",
     :foreign_key => "recipient_id"
   )
+  has_many(
+    :friendships,
+    :class_name => "Friendship",
+    :foreign_key => "user_id")
+
+  has_many :friends, :through => :friendships, :source => :friend
 
   after_initialize :ensure_session_token
 

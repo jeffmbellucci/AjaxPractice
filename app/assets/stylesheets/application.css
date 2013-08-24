@@ -19,3 +19,8 @@
 #secret-form {
   background: red;
 }
+
+.hidden {
+	visibility:hidden;
+}
+

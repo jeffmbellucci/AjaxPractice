@@ -13,3 +13,6 @@ gem 'bcrypt-ruby', :require => "bcrypt"
 gem 'jquery-rails'
 gem 'pg'
 gem 'underscore-rails'
+
+gem 'better_errors'
+gem 'binding_of_caller'

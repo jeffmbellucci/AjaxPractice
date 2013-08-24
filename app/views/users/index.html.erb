@@ -1,0 +1,30 @@
+<h2>All Users</h2>
+<ul>
+  <% @users.each do |user| %>
+
+    <li><%= user.username %></li>
+
+    <% unless current_user.id == user.id %>
+
+      <div class="friend_button">
+        <%= form_for(@friendship, :url => user_friendships_url(user)) do |f| %>
+
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :friend_id, value: user.id, :class_name => "friend_id" %>
+
+          <%= f.submit "Add friend", class: "friend_submit_button"  %>
+        <% end %>
+
+        <%= form_for(@friendship, :url => user_friendships_url(user), method: :delete) do |f| %>
+
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :friend_id, value: user.id, :class_name => "friend_id" %>
+
+          <%= f.submit "Unfriend" , class: "unfriend_submit_button hidden"%>
+        <% end %>
+      </div>
+
+    <% end %>
+
+  <% end %>
+</ul>
